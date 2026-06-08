@@ -1,0 +1,58 @@
+﻿<Window x:Class="GymFitnessSystem.Views.Client.AdaugaProgramareWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Finalizare Achiziție" Height="480" Width="340" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock x:Name="txtNumeServiciu" FontSize="18" FontWeight="Bold" Foreground="#1E3A8A" Margin="0,0,0,15" TextWrapping="Wrap"/>
+
+                <StackPanel x:Name="pnlProgramare" Visibility="Collapsed" Margin="0,0,0,10">
+                    <TextBlock Text="Alege data și ora programării:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                    <DatePicker x:Name="dpData" Margin="0,0,0,8" Height="30"/>
+                    <ComboBox x:Name="cmbOra" Height="30" Margin="0,0,0,10">
+                        <ComboBoxItem Content="08:00" IsSelected="True"/>
+                        <ComboBoxItem Content="10:00"/>
+                        <ComboBoxItem Content="12:00"/>
+                        <ComboBoxItem Content="14:00"/>
+                        <ComboBoxItem Content="16:00"/>
+                        <ComboBoxItem Content="18:00"/>
+                        <ComboBoxItem Content="20:00"/>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel x:Name="chkOptiuneAntrenor" Visibility="Collapsed" Margin="0,0,0,10">
+                    <CheckBox x:Name="chkVreauAntrenor" Content="Vreau să aleg un antrenor specific" 
+                              FontWeight="SemiBold" Margin="0,5,0,5" Checked="ChkVreauAntrenor_Checked" Unchecked="ChkVreauAntrenor_Unchecked"/>
+
+                    <StackPanel x:Name="pnlSelectieAntrenor" Visibility="Collapsed" Margin="0,5,0,5">
+                        <TextBlock Text="Selectează Antrenorul:" FontSize="12" Foreground="#4B5563" Margin="0,0,0,5"/>
+                        <ComboBox x:Name="cmbAntrenori" Height="30" DisplayMemberPath="Nume"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Separator Margin="0,5,0,15" Background="#E5E7EB"/>
+
+                <TextBlock Text="Total de plată:" FontWeight="SemiBold" Margin="0,0,0,3"/>
+                <TextBlock x:Name="txtTotal" FontSize="26" FontWeight="ExtraBold" Foreground="#059669" Margin="0,0,0,15"/>
+
+                <TextBlock Text="Metodă Plată:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                <ComboBox x:Name="cmbMetodaPlata" Height="32">
+                    <ComboBoxItem Content="Cash" IsSelected="True"/>
+                    <ComboBoxItem Content="Card"/>
+                </ComboBox>
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button Content="Anulează" Width="90" Height="35" Margin="0,0,10,0" Background="#F3F4F6" BorderThickness="0" Click="BtnAnulare_Click"/>
+            <Button Content="Finalizează" Width="110" Height="35" Background="#2563EB" Foreground="White" FontWeight="Bold" BorderThickness="0" Click="BtnFinalizare_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

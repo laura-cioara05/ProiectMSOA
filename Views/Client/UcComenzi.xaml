@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="GymFitnessSystem.Views.Client.UcComenzi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#F9FAFB">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Urmărire Status Activități Curente" FontSize="26" FontWeight="Bold" Foreground="#111827" Margin="0,0,0,20"/>
+
+        <!-- SECTIUNEA 1: COMENZI BAR -->
+        <GroupBox Grid.Row="1" Header="🛒 Comenzile mele la Bar (În Curs / Ridicare)" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,10" Background="White" BorderBrush="#E5E7EB">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
+                <ItemsControl x:Name="icComenziProduse">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="{Binding CuloareStare}" CornerRadius="10" Width="280" Margin="10" Padding="15">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding NumeProdus}" FontSize="16" FontWeight="Bold" Foreground="White" TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding DetaliiCantitate}" FontSize="13" Foreground="#E0E7FF" Margin="0,5,0,2"/>
+                                    <TextBlock Text="{Binding MetodaPlata}" FontSize="12" Foreground="White" FontStyle="Italic" Opacity="0.9" Margin="0,0,0,5"/>
+                                    <Separator Background="#4338CA" Opacity="0.3" Margin="0,5,0,5"/>
+                                    <TextBlock Text="{Binding StatusText}" FontSize="14" FontWeight="ExtraBold" Foreground="White" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>
+
+        <!-- SECTIUNEA 2: PROGRAMARI REZERVATE -->
+        <GroupBox Grid.Row="2" Header="📅 Programările mele active (Clase / Antrenori)" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,10" Background="White" BorderBrush="#E5E7EB">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
+                <ItemsControl x:Name="icProgramariServicii">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="{Binding CuloareStare}" CornerRadius="10" Width="280" Margin="10" Padding="15">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding NumeServiciu}" FontSize="16" FontWeight="Bold" Foreground="White" TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding DataOraText}" FontSize="13" Foreground="#FEF3C7" Margin="0,5,0,2"/>
+                                    <TextBlock Text="{Binding AntrenorText}" FontSize="13" Foreground="White" FontStyle="Italic"/>
+                                    <Separator Background="#B45309" Opacity="0.3" Margin="0,5,0,5"/>
+                                    <TextBlock Text="{Binding StatusText}" FontSize="14" FontWeight="ExtraBold" Foreground="White" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>
+
+        <!-- SECTIUNEA 3: ABONAMENTE RECENTE / IN ASTEPTARE CASH -->
+        <GroupBox Grid.Row="3" Header="💳 Abonamente &amp; Pachete de Servicii (În curs de activare)" FontSize="16" FontWeight="SemiBold" Background="White" BorderBrush="#E5E7EB">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="5">
+                <ItemsControl x:Name="icAbonamenteCurente">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="{Binding CuloareStare}" CornerRadius="10" Width="280" Margin="10" Padding="15">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding NumeAbonament}" FontSize="16" FontWeight="Bold" Foreground="White" TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding DetaliiPret}" FontSize="13" Foreground="#E0F2FE" Margin="0,5,0,2"/>
+                                    <TextBlock Text="{Binding MetodaPlata}" FontSize="12" Foreground="White" FontStyle="Italic" Opacity="0.9"/>
+                                    <Separator Background="#0369A1" Opacity="0.3" Margin="0,5,0,5"/>
+                                    <TextBlock Text="{Binding StatusText}" FontSize="14" FontWeight="ExtraBold" Foreground="White" HorizontalAlignment="Right"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="GymFitnessSystem.Views.Admin.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Portal Admin - GymPro App" Height="720" Width="1280"
+        WindowState="Maximized" UseLayoutRounding="True">
+
+    <Grid Background="#F3F4F6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Background="#1E40AF" CornerRadius="0,20,20,0">
+            <StackPanel Margin="20">
+                <TextBlock Text="GYM PRO" Foreground="White" FontSize="24" FontWeight="Bold" Margin="0,0,0,40"/>
+
+                <Button Content="Dashboard" Click="Dashboard_Click" Style="{StaticResource MenuButtonStyle}"/>
+                <Button Content="Membri" Click="Membri_Click" Style="{StaticResource MenuButtonStyle}"/>
+                <Button Content="Abonamente &amp; Plăți" Click="Management_Click" Style="{StaticResource MenuButtonStyle}"/>
+                <Button Content="Setări Sistem" Click="Setari_Click" Style="{StaticResource MenuButtonStyle}"/>
+                <Button Content="Performanță Aplicație" Click="Performanta_Click" Style="{StaticResource MenuButtonStyle}"/>
+                <Separator Margin="0,20" Background="#3B82F6"/>
+                <Button Content="Logout" Click="Logout_Click" Foreground="#FECACA" Background="Transparent" BorderThickness="0"/>
+            </StackPanel>
+        </Border>
+
+        <ContentControl Grid.Column="1" x:Name="ContentArea" Margin="30"/>
+    </Grid>
+</Window>
